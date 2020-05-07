@@ -1,7 +1,7 @@
-from tad_list import List
-from nodes import DoubleListNode
-from exceptions import InvalidPositionException, EmptyListException
-from doubly_linked_list_iterator import DoublyLinkedListIterator
+from .tad_list import List
+from .nodes import DoubleListNode
+from .exceptions import InvalidPositionException, EmptyListException
+from .doubly_linked_list_iterator import DoublyLinkedListIterator
 
 class DoublyLinkedList(list):
     def __init__(self):
@@ -168,9 +168,7 @@ class DoublyLinkedList(list):
 
     # Returns an iterator of the elements in the list (in proper sequence).
     
-    def iterator(self):
-        if self.is_empty() == True:
-            return None
+    def iterator(self):        
         iterator = DoublyLinkedListIterator(self.tail)        
         while iterator.has_previous() != False:
             elem = iterator.previous()

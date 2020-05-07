@@ -1,7 +1,7 @@
-from tad_list import List
-from nodes import SingleListNode
-from exceptions import EmptyListException, InvalidPositionException
-from singly_linked_list_iterator import SinglyLinkedListIterator
+from .tad_list import List
+from .nodes import SingleListNode
+from .exceptions import EmptyListException, InvalidPositionException
+from .singly_linked_list_iterator import SinglyLinkedListIterator
 
                                                     
 class SinglyLinkedList(list):
@@ -185,9 +185,7 @@ class SinglyLinkedList(list):
 
     # Returns an iterator of the elements in the list (in proper sequence).
     
-    def iterator(self):
-        if self.is_empty() == True:
-            return None
+    def iterator(self):        
         iterator = SinglyLinkedListIterator(self.head)        
         while iterator.has_next() != False:
             ele = iterator.next()
