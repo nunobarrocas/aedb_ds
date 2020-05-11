@@ -1,5 +1,5 @@
-from tad_iterator import Iterator
-from exceptions import NoSuchElementException
+from .tad_iterator import Iterator
+from ..exceptions import NoSuchElementException
 
 class SinglyLinkedListIterator:
     def __init__(self, head):

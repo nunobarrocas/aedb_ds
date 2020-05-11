@@ -1,6 +1,6 @@
 from .tad_list import List
 from .nodes import DoubleListNode
-from .exceptions import InvalidPositionException, EmptyListException
+from ..exceptions import InvalidPositionException, EmptyListException
 from .doubly_linked_list_iterator import DoublyLinkedListIterator
 
 class DoublyLinkedList(list):
