@@ -1,8 +1,8 @@
-from tad_iterator import TwoWayIterator
-from exceptions import NoSuchElementException, EmptyListException
+from .tad_iterator import TwoWayIterator
+from ..exceptions import NoSuchElementException, EmptyListException
 
 
-class DoublyLinkedListIterator:
+class DoublyLinkedListIterator(TwoWayIterator):
     def __init__(self, tail):        
         self.tail = tail
         self.current = tail        

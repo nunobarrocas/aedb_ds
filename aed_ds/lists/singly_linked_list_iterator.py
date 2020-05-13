@@ -1,7 +1,7 @@
 from .tad_iterator import Iterator
 from ..exceptions import NoSuchElementException
 
-class SinglyLinkedListIterator:
+class SinglyLinkedListIterator(Iterator):
     def __init__(self, head):
         self.head = head
         self.current = head
@@ -17,7 +17,7 @@ class SinglyLinkedListIterator:
     
     def next(self):
         if self.current == None:
-            raise NoSuchElementException("No such element")
+            raise NoSuchElementException()
         current_node = self.current
         self.current = self.current.get_next()
         return current_node.get_element()        

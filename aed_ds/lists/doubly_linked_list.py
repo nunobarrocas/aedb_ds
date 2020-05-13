@@ -1,9 +1,9 @@
-from .tad_list import List
+from .singly_linked_list import SinglyLinkedList
 from .nodes import DoubleListNode
 from ..exceptions import InvalidPositionException, EmptyListException
 from .doubly_linked_list_iterator import DoublyLinkedListIterator
 
-class DoublyLinkedList(list):
+class DoublyLinkedList(SinglyLinkedList):
     def __init__(self):
         self.head = None
         self.tail = None
