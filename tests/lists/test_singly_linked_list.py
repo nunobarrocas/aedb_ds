@@ -1,14 +1,9 @@
 import unittest
 
-<<<<<<< HEAD
-from aed_ds.lists.singly_linked_list import SinglyLinkedList
-from aed_ds.exceptions import EmptyListException, InvalidPositionException, NoSuchElementException
-=======
 from aed_ds.exceptions import EmptyListException, InvalidPositionException
 from aed_ds.lists.singly_linked_list import SinglyLinkedList
 from aed_ds.lists.singly_linked_list_iterator import SinglyLinkedListIterator
 from aed_ds.lists.tad_iterator import Iterator
->>>>>>> upstream/develop
 
 class TestSinglyLinkedList(unittest.TestCase):
     def setUp(self):
@@ -139,25 +134,6 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.list.make_empty()
         self.assertTrue(self.list.is_empty())
 
-<<<<<<< HEAD
-    def test_make_empty(self):
-        self.add_elements(3)
-        self.list.make_empty()
-        self.assertEqual(self.list.is_empty(), True)
-        self.assertEqual(self.list.size(), 0)
-    
-    def test_iterator(self):        
-        iterator = self.list.iterator()
-        with self.assertRaises(NoSuchElementException):
-            iterator.next()
-        self.add_elements(6)        
-        node_elements = []
-        iterator2 = self.list.iterator()
-        while iterator2.has_next():
-            node_elements.append(iterator2.next())
-        self.assertEqual(node_elements, ["element 1", "element 2", "element 3", "element 4", "element 5", "element 6"])
-=======
     def test_iterator(self):
         self.assertIsInstance(self.list.iterator(), Iterator)
         self.assertIsInstance(self.list.iterator(), SinglyLinkedListIterator)
->>>>>>> upstream/develop
