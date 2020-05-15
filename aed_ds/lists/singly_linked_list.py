@@ -9,12 +9,6 @@ class SinglyLinkedList(List):
         self.head = None
         self.tail = None
         self.num_elements = 0
-
-    def get_head(self):
-        return self.head
-    
-    def get_tail(self):
-        return self.tail
     
 
     # Returns true iff the list contains no elements.
@@ -118,9 +112,9 @@ class SinglyLinkedList(List):
             raise InvalidPositionException()
         if position == 0:
             return self.insert_first(element)
-        elif position == self.size():
+        elif position == self.size()-1:
             return self.insert_last(element)
-        current_pos = 1
+        current_pos = 0
         current_node=self.head            
         while True:
             previous = current_node            
@@ -150,7 +144,7 @@ class SinglyLinkedList(List):
     # Throws EmptyListException.
     
     def remove_last(self):
-        if self.is_empty():
+        if self.is_empty() == True:
             raise EmptyListException()          
         current_pos = 0
         current_node = self.head                       
@@ -175,7 +169,7 @@ class SinglyLinkedList(List):
             return self.remove_first()
         elif position == self.size() - 1:
             return self.remove_last()
-        current_pos = 1
+        current_pos = 0
         current_node = self.head        
         while True:
             previous = current_node            
