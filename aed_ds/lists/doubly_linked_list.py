@@ -37,6 +37,8 @@ class DoublyLinkedList(SinglyLinkedList):
         new_node = DoubleListNode(element, None, self.tail)
         if self.count == 0:
             self.head = new_node
+            self.tail = new_node
+            self.count +=1
         self.tail.set_next(new_node)    
         self.tail = new_node
         self.count += 1
