@@ -54,8 +54,7 @@ class TestDoublyLinkedListIterator(unittest.TestCase):
     def test_rewind(self):
         self.iterator.rewind()
 
-        self.add_elements(5)
-        
+        self.add_elements(5)        
         
         for _ in range(3):
             self.iterator.next()
@@ -110,15 +109,13 @@ class TestDoublyLinkedListIterator(unittest.TestCase):
     def test_full_forward(self):
         self.iterator.full_forward()
 
-        self.add_elements(5)
-        
+        self.add_elements(5)        
         
         for _ in range(3):
             self.iterator.next()
         self.iterator.full_forward()
         self.assertTrue(self.iterator.has_previous())
         self.assertEqual(self.iterator.previous(), "element 5")
-
         
         while self.iterator.has_previous():
             self.iterator.previous()
