@@ -1,6 +1,7 @@
 from .tad_queue import Queue
 
-class ArrayQueue(Queue):
+class ArrayQueue(Queue): pass
+        
     def isEmpty(self): pass
 
     def isFull(self): pass
