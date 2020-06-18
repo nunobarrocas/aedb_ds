@@ -68,32 +68,26 @@ class HashTable(Dictionary):
 
     def keys(self):
         result = SinglyLinkedList()
-        idx = 0
-        for i in self.table:
-            while idx < i.size():
-                result.insert_last(i.iterator().next().get_key())
-                idx +=1
+        for i in range(self.size()):
+            for _ in range(self.table[i].size()):
+                result.insert_last(self.table[i].iterator().next().get_key())
         return result
 
     def values(self):
         result = SinglyLinkedList()
-        idx = 0
-        for i in self.table:
-            while idx < i.size():
-                result.insert_last(i.iterator().next().get_value())
-                idx +=1
+        for i in range(self.size()):
+            for _ in range(self.table[i].size()):
+                result.insert_last(self.table[i].iterator().next().get_value())
         return result
 
     def items(self):
         result = SinglyLinkedList()
-        idx = 0
-        for i in self.table:
-            while idx < i.size():
+        for i in range(self.size()):
+            for _ in range(self.table[i].size()):
                 new_node = SinglyLinkedList()
-                new_node.insert_last(i.iterator().next().get_key())
-                new_node.insert_last(i.iterator().next().get_value())
+                new_node.insert_last(self.table[i].iterator().next().get_key())
+                new_node.insert_last(self.table[i].iterator().next().get_value())
                 result.insert_last(new_node)
-                idx += 1
         return result
 
     def hash_function(self, k):
