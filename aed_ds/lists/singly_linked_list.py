@@ -168,4 +168,10 @@ class SinglyLinkedList(List):
     # Returns an iterator of the elements in the list (in proper sequence).
     def iterator(self):
         return SinglyLinkedListIterator(self)
+
+    def get_key(self):
+        return self.get_first()
+
+    def get_value(self):
+        return self.get_last()
      
