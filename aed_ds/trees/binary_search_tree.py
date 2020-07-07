@@ -79,36 +79,23 @@ class BinarySearchTree(OrderedDictionary, Tree):
         if root == None:
             raise NoSuchElementException()
         elif root.get_key() > k:
-            self.remove_root(root.get_left_child(), k)
+            root.left_child = self.remove_root(root.get_left_child(), k)
         elif root.get_key() < k:
-            self.remove_root(root.get_right_child(), k)
-        elif root.get_key() == k and (root.is_leaf() or self.num_elements == 1):
-            root = None
-            self.num_elements =-1
-            return root
-        elif root.get_key() == k and root.get_right_child() == None:
-            root = root.get_left_child()
-            self.num_elements =-1 
-            return root             
-        elif root.get_key() == k and root.get_left_child() == None:            
-            min_node = self.get_min_node(root.get_right_child())
-            min_node_key = min_node.get_key()
-            min_node.set_right_child(root.get_right_child())
-            root = min_node
-            min_node.set_left_child(None)
-            min_node.set_right_child(None)            
-            self.remove_root(root, min_node_key)
-            return root                 
-        elif root.get_key() == k and (root.get_left_child() and root.get_right_child() != None):
-            min_node = self.get_min_node(root.get_right_child())
-            min_node_key = min_node.get_key()
-            min_node.set_left_child(root.get_right_child())
-            min_node.set_right_child(root.get_right_child())
-            root = min_node
-            min_node.set_left_child(None)
-            min_node.set_right_child(None)
-            self.remove_root(root, min_node_key)         
-            return root
+            root.right_child = self.remove_root(root.get_right_child(), k)
+        else:
+            if root.left_child and root.right_child == None:
+                root = None # case 0
+            elif root.left_child == None: 
+                return root.right_child # case 1r
+            elif root.right_child == None: 
+                return root.left_child # case 1l
+            else:  # case 2
+                temp = self.get_min_node(root.right_child)
+                root.right_child = self.remove_root(root.right_child, temp)
+                self.remove_root(root.right_child, temp)
+        return root
+
+        
         
         
 
@@ -174,9 +161,7 @@ class BinarySearchTree(OrderedDictionary, Tree):
             if(left_height > right_height):
                 return 1 + left_height
             else:
-                return 1 + right_height
-
-         
+                return 1 + right_height         
 
     # Returns True if the tree is empty
     def is_empty(self):

@@ -58,6 +58,12 @@ class TestBinarySearchTree(unittest.TestCase):
         self.tree.remove(3)
         with self.assertRaises(NoSuchElementException):
             self.tree.get(3)
+        self.tree.remove(4)
+        self.tree.remove(3)
+        self.tree.remove(2)
+        self.tree.remove(1)
+
+
 
     def test_keys(self):
         self.assertTrue(self.tree.keys().is_empty())
